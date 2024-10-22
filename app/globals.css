@@ -1,0 +1,46 @@
+.react-aria-RadioGroup {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.react-aria-Radio {
+	display: flex;
+	align-items: center;
+	gap: 0.571rem;
+	font-size: 1.143rem;
+	forced-color-adjust: none;
+
+	&:before {
+		content: "";
+		display: block;
+		width: 1.286rem;
+		height: 1.286rem;
+		box-sizing: border-box;
+		border: 0.143rem solid black;
+		background: none;
+		border-radius: 1.286rem;
+		transition: all 200ms;
+	}
+
+	&[data-pressed]:before {
+		border-color: black;
+	}
+
+	&[data-selected] {
+		&:before {
+			border-color: red;
+			border-width: 0.429rem;
+			background-color: black;
+		}
+
+		&[data-pressed]:before {
+			border-color: green;
+		}
+	}
+
+	&[data-focus-visible]:before {
+		outline: 2px solid yellow;
+		outline-offset: 2px;
+	}
+}
