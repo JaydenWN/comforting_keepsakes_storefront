@@ -2,9 +2,8 @@ import { json, type MetaFunction } from "@remix-run/node";
 import { requireUser } from "~/utils/requireUser.server.js";
 import medusa from "~/utils/medua-client";
 import { NavLink, useLoaderData } from "@remix-run/react";
-import { getSession } from "~/utils/createUserSession.server";
 import Page_Header from "~/components/Misc/Page_Header";
-import OrderSummary from "../components/Orders/order_summary";
+import OrderSummary from "../components/Orders/Order_Summary";
 import styles from "../components/Orders/orders.module.css";
 
 export const meta: MetaFunction = () => {
