@@ -11,7 +11,6 @@ import {
 	TextField,
 	Input,
 	Text,
-	TextArea,
 	FieldError,
 } from "react-aria-components";
 

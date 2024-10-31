@@ -1,10 +1,4 @@
-import {
-	Modal,
-	Dialog,
-	Heading,
-	ModalOverlay,
-	Button,
-} from "react-aria-components";
+import { Modal, Dialog, ModalOverlay, Button } from "react-aria-components";
 import styles from "./product_added_modal.module.css";
 import { NavLink } from "@remix-run/react";
 

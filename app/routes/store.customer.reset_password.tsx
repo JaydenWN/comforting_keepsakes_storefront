@@ -1,8 +1,6 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { requireUser } from "~/utils/requireUser.server.js";
 import medusa from "~/utils/medua-client";
 import { useActionData, useLoaderData, useSubmit } from "@remix-run/react";
-import { getSession } from "~/utils/createUserSession.server";
 import {
 	Button,
 	FieldError,
