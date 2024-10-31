@@ -1,0 +1,29 @@
+.product_card {
+	display: flex;
+	gap: 1em;
+	flex-direction: column;
+	padding: 1em;
+	border-radius: 8px;
+	background-color: var(--off-white);
+	box-sizing: border-box;
+	border: 1px solid var(--primary);
+	width: 100%;
+}
+.product_image {
+	object-fit: contain;
+}
+
+.product_image img {
+	border-radius: 8px;
+	width: 100%;
+}
+
+.product_title {
+	text-align: center;
+	font-weight: 500;
+}
+
+.product_card a {
+	margin: auto;
+	padding: 0em 1em;
+}

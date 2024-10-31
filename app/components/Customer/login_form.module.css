@@ -1,0 +1,42 @@
+.login_form {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--off-white);
+	border-radius: 8px;
+	gap: 1em;
+	padding: 1em;
+	border: 1px solid var(--primary);
+	margin: 1em 0px;
+}
+
+.login_form div {
+	display: flex;
+	flex-direction: column;
+}
+
+.login_form input {
+	font-family: "text";
+	padding: 0.5em 1em;
+	border: 1px solid var(--secondary);
+	font-size: 1em;
+	border-radius: 8px;
+}
+
+.field_error {
+	font-size: .7em;
+	color: var(--accent);
+	line-height: 2em;
+}
+
+.login_header {
+	margin: 1em .25em;
+	font-size: 1em;
+}
+
+.login_header a {
+	color: var(--accent);
+}
+
+.login_header p:last-of-type {
+	font-size: 0.8em;
+}

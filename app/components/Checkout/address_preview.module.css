@@ -1,0 +1,18 @@
+.address_preview {
+	display: flex;
+	flex-direction: column;
+	font-size: .7em;
+	border: 2px solid var(--off-white);
+	border-radius: 8px;
+}
+
+.address_preview div {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0.25em 1em;
+}
+
+.address_preview div:nth-of-type(odd) {
+	background-color: var(--off-white);
+}

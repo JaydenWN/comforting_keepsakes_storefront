@@ -1,0 +1,91 @@
+.my-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.034);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+	display: flex;
+	justify-content: center;
+	z-index: 4;
+	&[data-entering] {
+		animation: mymodal-blur 100ms;
+	}
+
+	&[data-exiting] {
+		animation: mymodal-blur 100ms reverse ease-in;
+	}
+}
+
+.product_modal {
+	position: fixed;
+	margin: 1em;
+	width: fit-content;
+	height: fit-content;
+	background-color: white;
+	border-radius: 8px;
+	padding: 1em;
+	border-left: 1px solid var(--border-color);
+	border: 1px solid var(--primary);
+	&[data-entering] {
+		animation: mymodal-slide 100ms;
+	}
+
+	&[data-exiting] {
+		animation: mymodal-slide 100ms reverse ease-in;
+	}
+}
+
+.modal_content {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	text-align: center;
+}
+.modal_buttons {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: .5em;
+	margin-top: 1em;
+}
+.modal_button {
+	color: white;
+	padding: .3em 2em;
+	font-family: "text";
+	font-size: .8em;
+	border: 0px;
+	border-radius: 8px;
+	text-decoration: none;
+	background-color: var(--primary);
+}
+.modal_button:first-child {
+	background: var(--accent);
+}
+.modal_header {
+	display: flex;
+	gap: 1em;
+	font-weight: 600;
+	background: var(--off-white);
+	padding: 0.5em;
+	border-radius: 8px;
+}
+@keyframes mymodal-blur {
+	from {
+		background: rgba(45 0 0 / 0);
+		backdrop-filter: blur(0);
+	}
+
+	to {
+		background: rgba(0, 0, 0, 0.034);
+		backdrop-filter: blur(10px);
+	}
+}
+
+@keyframes mymodal-slide {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(100%);
+	}
+}

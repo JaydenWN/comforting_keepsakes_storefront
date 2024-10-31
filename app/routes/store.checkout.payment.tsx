@@ -5,11 +5,12 @@ import { cartID } from "~/utils/createCartCookie";
 import { Elements, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useLoaderData } from "@remix-run/react";
 import { loadStripe } from "@stripe/stripe-js";
-import StripeForm from "../components/Cart/StripeForm";
+import StripeForm from "../components/Checkout/StripeForm";
+import Checkout_Totals from "~/components/Checkout/Checkout_Totals";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Checkout Payment" },
+		{ title: "Comforting Keepsakes | Checkout Payment" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -76,10 +77,39 @@ export async function loader({ request }) {
 export default function Payment() {
 	const { clientSecret, stripeKey, cart } = useLoaderData();
 	const stripePromise = loadStripe(stripeKey);
+	const fonts = [
+		{
+			cssSrc: "https://fonts.googleapis.com/css2?family=Raleway",
+		},
+	];
+	const appearance = {
+		theme: "stripe",
+		variables: {
+			colorPrimary: "#f69b5e",
+			colorDanger: "#ff6600",
+			colorText: "#1d1c1b",
+			colorBackground: "#fffaf3",
+			borderRadius: "8px",
+			fontFamily: '"Raleway", sans-serif',
+			gridRowSpacing: "2em",
+		},
+		rules: {
+			".Tab, .Input": {
+				boxShadow: "0px",
+				border: "1px solid #f69b5e",
+			},
+		},
+	};
 	return (
 		<>
-			<h2>Checkout Payment</h2>
-			<Elements stripe={stripePromise} options={{ clientSecret }}>
+			{" "}
+			<div className="section-p">
+				<Checkout_Totals cart={cart} />
+			</div>
+			<Elements
+				stripe={stripePromise}
+				options={{ clientSecret, appearance, fonts }}
+			>
 				<StripeForm clientSecret={clientSecret} cart={cart} />
 			</Elements>
 		</>

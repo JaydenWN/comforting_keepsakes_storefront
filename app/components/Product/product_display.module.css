@@ -1,0 +1,26 @@
+.product_display {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.product_image_container {
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+.product_image_container img {
+	object-fit: contain;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.product_display h1 {
+	font-size: 1.8em;
+}
+
+.product_price {
+	color: var(--accent);
+}

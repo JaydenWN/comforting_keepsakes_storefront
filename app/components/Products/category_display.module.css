@@ -1,0 +1,15 @@
+.title {
+	text-transform: capitalize;
+}
+
+.product_display {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.products {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1em;
+}

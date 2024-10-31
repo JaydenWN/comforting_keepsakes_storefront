@@ -1,0 +1,95 @@
+.edit_overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.034);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+	display: flex;
+	justify-content: center;
+	z-index: 4;
+	&[data-entering] {
+		animation: mymodal-blur 100ms;
+	}
+
+	&[data-exiting] {
+		animation: mymodal-blur 100ms reverse ease-in;
+	}
+}
+
+.edit_modal {
+	position: fixed;
+	background-color: white;
+	width: calc(100% - 2em);
+	padding: 1em;
+	border-left: 1px solid var(--border-color);
+
+	&[data-entering] {
+		animation: mymodal-slide 100ms;
+	}
+
+	&[data-exiting] {
+		animation: mymodal-slide 100ms reverse ease-in;
+	}
+}
+
+.edit_details_form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+}
+.edit_details_form {
+	display: flex;
+	flex-direction: column;
+}
+.input_group {
+	display: flex;
+	flex-direction: column;
+}
+
+.input_group input {
+	padding: .5em 1em;
+	border-radius: 8px;
+	border: 1px solid var(--primary);
+	font-size: 1em;
+	width: 100%;
+	box-sizing: border-box;
+}
+.state-postal {
+	display: flex;
+	gap: 1em;
+}
+
+.state-postal div {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.buttons {
+	display: flex;
+	gap: 1em;
+	flex-direction: row-reverse;
+	margin: 1em 0px;
+}
+
+@keyframes mymodal-blur {
+	from {
+		background: rgba(45 0 0 / 0);
+		backdrop-filter: blur(0);
+	}
+
+	to {
+		background: rgba(0, 0, 0, 0.034);
+		backdrop-filter: blur(10px);
+	}
+}
+
+@keyframes mymodal-slide {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(100%);
+	}
+}

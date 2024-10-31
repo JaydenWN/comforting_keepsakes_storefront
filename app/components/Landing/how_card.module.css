@@ -1,0 +1,28 @@
+.how_card {
+	background-color: var(--secondary);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	text-align: center;
+	align-items: center;
+	height: 100%;
+}
+
+.how_circle {
+	background-color: var(--accent);
+	width: 55px;
+	height: 55px;
+	border-radius: 50%;
+	display: flex;
+	justify-self: center;
+	align-items: center;
+}
+.how_circle p {
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: 600;
+	width: 100%;
+	color: white;
+}

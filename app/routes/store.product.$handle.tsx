@@ -1,13 +1,19 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { useFetcher, useLoaderData, Form } from "@remix-run/react";
+import { useFetcher, useLoaderData } from "@remix-run/react";
+import { Form } from "react-aria-components";
 import { useState } from "react";
 import medusa from "~/utils/medua-client";
 import createCart from "~/utils/createCart";
 import { cartID } from "~/utils/createCartCookie";
+import ProductDisplay from "../components/Product/Product_Display";
+import ProductSelection from "../components/Product/Product_Selection";
+import { Button } from "react-aria-components";
+import styles from "../components/Product/product.module.css";
+import ProductAddedModal from "../components/Product/Product_Added_Modal";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Product Name" },
+		{ title: "Comforting Keepsakes | Product Name" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -35,11 +41,19 @@ export default function Product() {
 	const fetcher = useFetcher();
 
 	const [selectedVariant, setSelectedVariant] = useState(product.variants[0]);
+	const [customText, setCustomText] = useState(null);
+	const [isOpen, setOpen] = useState(false);
 
-	function handleAddToCart() {
+	function handleAddToCart(e) {
+		setOpen(true);
+
+		e.preventDefault();
 		const formData = new FormData();
 		formData.set("product_handle", selectedVariant.handle);
 		formData.set("variant_id", selectedVariant.id);
+		if (customText) {
+			formData.set("custom_text", customText);
+		}
 		fetcher.submit(formData, { method: "POST", action: "/store/cart" });
 	}
 
@@ -49,27 +63,36 @@ export default function Product() {
 
 	return (
 		<>
-			<h2>{product.title}</h2>
-			<p>{product.description}</p>
-			<img src={product.images[0].url} style={{ width: 200 }} />
+			<ProductAddedModal product={product} isOpen={isOpen} setOpen={setOpen} />
+			<section className={`${styles["product"]} gutter-p section-p`}>
+				<ProductDisplay
+					title={product.title}
+					description={product.description}
+					imgs={product.images}
+					price={selectedVariant.prices[0].amount}
+				/>
 
-			<Form>
-				{product.variants.length > 1
-					? product.variants.map((variant) => (
-							<div key={variant.title}>
-								<input
-									type="radio"
-									value={variant.title}
-									name="variant"
-									id={variant.title}
-									onChange={() => handleVariantSelect(variant)}
-								/>
-								<label htmlFor={variant.title}>{variant.title}</label>
-							</div>
-						))
-					: null}
-				<button onClick={handleAddToCart}>Add to cart</button>
-			</Form>
+				<Form
+					className={styles["product_form"]}
+					method="post"
+					validationErrors={fetcher.data?.errors}
+					onSubmit={(e) => handleAddToCart(e)}
+				>
+					{product.variants.length > 1 ? (
+						<ProductSelection
+							productVariants={product.variants}
+							setSelectedVariant={setSelectedVariant}
+							selectedVariant={selectedVariant}
+							setCustomText={setCustomText}
+							customText={customText}
+						/>
+					) : null}
+
+					<Button type="submit" className="primary_button">
+						Add to Cart
+					</Button>
+				</Form>
+			</section>
 		</>
 	);
 }

@@ -1,0 +1,53 @@
+.order_summary {
+	background-color: var(--off-white);
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.summary_head {
+	color: var(--primary);
+	text-align: right;
+}
+.order_id {
+	font-size: .7em;
+	color: var(--primary);
+	text-align: center;
+}
+.date {
+	font-weight: 500;
+}
+
+.order_items {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	border-top: 1px solid var(--secondary);
+	border-bottom: 1px solid var(--secondary);
+	padding: 1em 0px;
+}
+
+.summary_footer {
+	display: flex;
+	justify-content: space-between;
+}
+
+.total {
+	color: var(--accent);
+	font-family: "currency";
+	font-size: .8em;
+	line-height: 1em;
+}
+
+.postal {
+	line-height: 1.5em;
+	font-size: .8em;
+}
+
+.tracking {
+	margin-left: auto;
+	max-width: fit-content;
+}

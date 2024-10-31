@@ -1,0 +1,45 @@
+.collection-display {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 4rem 0px;
+}
+.collection-display:first-of-type {
+	margin-top: 0px;
+}
+
+.collection-display h2 {
+	font-size: 1.25em;
+	margin-bottom: -16px;
+}
+
+.collection-head a {
+	font-size: .8em;
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.preview_card {
+	width: 10rem;
+	height: 10rem;
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.preview_card img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.embla {
+	overflow: hidden;
+}
+.embla__container {
+	display: flex;
+}
+.embla__slide {
+	flex: 0 0 50%;
+	min-width: 0;
+}

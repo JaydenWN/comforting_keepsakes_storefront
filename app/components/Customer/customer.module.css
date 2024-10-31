@@ -1,0 +1,9 @@
+.customer_navigation {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 1em;
+}
+
+.customer_navigation a {
+	padding: .25em 1em;
+}

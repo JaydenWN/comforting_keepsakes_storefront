@@ -1,0 +1,5 @@
+.page-title {
+	font-size: 2em;
+	border-bottom: 1px solid var(--secondary);
+	margin: 0px;
+}

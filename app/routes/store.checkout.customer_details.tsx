@@ -16,10 +16,13 @@ import {
 } from "react-aria-components";
 import medusa from "~/utils/medua-client";
 import { getSession } from "~/utils/createUserSession.server";
+import CustomerInfo from "../components/Checkout/Customer_Info";
+import PostalDetails from "../components/Checkout/Postal_Details";
+import styles from "../components/Checkout/checkout_form.module.css";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Checkout" },
+		{ title: "Comforting Keepsakes | Checkout" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -98,85 +101,15 @@ export default function CustomerDetails() {
 			action="/store/checkout/customer_details"
 			validationErrors={actionData?.errors}
 			onSubmit={onSubmit}
+			className={`${styles["checkout_form"]} section-p`}
 		>
-			<TextField
-				name="first_name"
-				type="text"
-				isRequired
-				value={loaderData?.first_name || undefined}
-				autoComplete="given-name"
-			>
-				<Label>First Name</Label>
-				<Input />
-				<FieldError />
-			</TextField>
+			<CustomerInfo loaderData={loaderData} />
 
-			<TextField
-				name="last_name"
-				type="text"
-				isRequired
-				value={loaderData?.last_name || undefined}
-				autoComplete="family-name"
-			>
-				<Label>Last Name</Label>
-				<Input />
-				<FieldError />
-			</TextField>
+			<PostalDetails />
 
-			<TextField
-				type="email"
-				name="email"
-				isRequired
-				value={loaderData?.email || undefined}
-				autoComplete="email"
-			>
-				<Label>Email</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField type="text" name="address_1" isRequired>
-				<Label>Address Line 1</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField type="text" name="address_2">
-				<Label>Address Line 2</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField type="text" name="city" isRequired>
-				<Label>City</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField type="text" name="state" isRequired>
-				<Label>State</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField
-				type="text"
-				name="postal_code"
-				isRequired
-				autoComplete="postal-code"
-			>
-				<Label>Postal Code</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<TextField type="text" name="phone" isRequired autoComplete="tel">
-				<Label>Phone</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-
-			<Button type="submit">Continue</Button>
+			<Button type="submit" className={"primary_button"}>
+				Continue
+			</Button>
 		</Form>
 	);
 }

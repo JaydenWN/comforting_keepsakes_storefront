@@ -1,0 +1,11 @@
+.product {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.product_form {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+}

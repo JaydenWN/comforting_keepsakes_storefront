@@ -1,0 +1,36 @@
+.customer_details {
+	display: flex;
+	flex-direction: column;
+}
+
+.details_header {
+	display: flex;
+	justify-content: space-between;
+	margin: 0px 0px .5em 8px;
+}
+.details_header button {
+	background-color: var(--off-white);
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+}
+
+.details_card {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--off-white);
+	border-radius: 8px;
+	padding: 1em;
+	gap: 1em;
+	border: 1px solid var(--primary);
+}
+
+.detail p:first-of-type {
+	font-size: 1em;
+	max-width: fit-content;
+	font-weight: normal;
+}
+
+.detail p {
+	font-weight: 300;
+	font-size: .9em;
+}

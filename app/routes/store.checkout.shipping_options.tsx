@@ -18,10 +18,15 @@ import {
 	Input,
 	Button,
 } from "react-aria-components";
+import AddressPreview from "../components/Checkout/Address_Preview";
+import ShippingOption from "../components/Checkout/Shipping_Option";
+import styles from "../components/Checkout/shipping_option.module.css";
+import CheckoutTotals from "../components/Checkout/Checkout_Totals";
+import { useState } from "react";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Checkout" },
+		{ title: "Comforting Keepsakes | Checkout" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -57,30 +62,41 @@ export default function Checkout() {
 	const submit = useSubmit();
 	const actionData = useActionData();
 
+	const [selectedShipping, setSelectedShipping] = useState();
+
 	function handleSubmit(e) {
 		e.preventDefault();
-		submit(e.currentTarget);
+
+		submit({ shipping_option: selectedShipping.id }, { method: "post" });
 	}
 	return (
 		<>
-			<h2>Checkout | Shipping</h2>
-
 			<Form
 				validationErrors={actionData?.errors}
 				onSubmit={(e) => handleSubmit(e)}
 				method="post"
+				className={`${styles["shipping_form"]} section-p`}
 			>
-				<RadioGroup name="shipping_option" isRequired>
-					<Label>Shipping option</Label>
+				<RadioGroup
+					name="shipping_option"
+					isRequired
+					onChange={(e) => setSelectedShipping(e)}
+				>
+					<Label>Shipping Options</Label>
 					{shipping_options.length > 0
 						? shipping_options.map((option) => (
-								<Radio key={option.id} value={option.id}>
-									{option.name}
-								</Radio>
+								<ShippingOption option={option} key={option.id} />
 							))
 						: null}
 				</RadioGroup>
-				<Button type="submit">Continue</Button>
+
+				<AddressPreview shipping_address={cart?.shipping_address} />
+
+				<CheckoutTotals cart={cart} selectedShipping={selectedShipping} />
+
+				<Button type="submit" className="primary_button">
+					Continue
+				</Button>
 			</Form>
 		</>
 	);

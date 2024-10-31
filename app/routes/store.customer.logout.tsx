@@ -7,10 +7,11 @@ import {
 	destroySession,
 	getSession,
 } from "~/utils/createUserSession.server";
+import Page_Header from "~/components/Misc/Page_Header";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Logout" },
+		{ title: "Comforting Keepsakes | Logout" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -26,13 +27,10 @@ export async function loader({ request }) {
 	const session = await destroySession(request.headers.get("Cookie"));
 	const userSessionCookie = await commitSession(session);
 	await medusa.auth.deleteSession(headers);
-	return json(null, {
-		headers: {
-			"Set-Cookie": userSessionCookie,
-		},
-	});
-}
-
-export default function LogOut() {
-	return <h2>Sign Out</h2>;
+	// return json(null, {
+	// 	headers: {
+	// 		"Set-Cookie": userSessionCookie,
+	// 	},
+	// });
+	return redirect("/", { headers: { "Set-Cookie": userSessionCookie } });
 }

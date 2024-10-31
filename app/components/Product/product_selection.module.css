@@ -1,0 +1,49 @@
+.product_selection_group {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.product_select {
+	display: flex;
+	flex-direction: column;
+}
+.product_select button {
+	background-color: var(--secondary);
+	border: 0px;
+	font-family: "text";
+	font-size: 1rem;
+	padding: 1em 1.5em;
+	display: flex;
+	justify-content: space-between;
+	border-radius: 8px;
+}
+
+.product_popover {
+	background-color: var(--secondary);
+	display: flex;
+	width: calc(100% - 2rem);
+	border-radius: 8px;
+	box-sizing: border-box;
+}
+.product_popover div {
+	box-sizing: border-box;
+	width: 100%;
+}
+.product_popover div div {
+	padding: 0.5em 1em;
+}
+
+.custom_text {
+	display: flex;
+	flex-direction: column;
+}
+
+.custom_text input {
+	background-color: var(--secondary);
+	border: 0px;
+	border-radius: 8px;
+	font-family: "text";
+	font-size: 1em;
+	padding: 0.8em 1em;
+}

@@ -1,9 +1,10 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { Outlet } from "@remix-run/react";
+import Page_Header from "~/components/Misc/Page_Header";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Checkout" },
+		{ title: "Comforting Keepsakes | Checkout" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -15,10 +16,10 @@ export async function loader({ request }) {
 
 export default function Checkout() {
 	return (
-		<>
-			<h2>Checkout</h2>
+		<section className="gutter-p section-p">
+			<Page_Header title={"Checkout"} />
 
 			<Outlet />
-		</>
+		</section>
 	);
 }

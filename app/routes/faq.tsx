@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Services" },
+		{ title: "Comforting Keepsakes | Services" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };

@@ -1,6 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Outlet } from "@remix-run/react";
-
+import LandingHero from "../components/Landing/Landing_Hero";
+import HowItWorks from "../components/Landing/How_It_Works";
+import Testimonials from "../components/Landing/Testimonials";
+import Why from "../components/Landing/Why";
 export const meta: MetaFunction = () => {
 	return [
 		{ title: "New Remix App" },
@@ -10,9 +12,11 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
 	return (
-		<>
-			<h1>Index</h1>
-			<Outlet />
-		</>
+		<main>
+			<LandingHero />
+			<HowItWorks />
+			<Testimonials />
+			<Why />
+		</main>
 	);
 }

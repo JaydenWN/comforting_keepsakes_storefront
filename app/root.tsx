@@ -1,14 +1,18 @@
 import {
 	Links,
 	Meta,
+	NavLink,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	useRouteError,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
-import Navbar from "./components/global/navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 import "./globals.css";
+import Page_Header from "./components/Misc/Page_Header";
 
 export const links: LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -36,6 +40,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
 				<Navbar />
 				{children}
 				<ScrollRestoration />
+				<Scripts />
+				<Footer />
+			</body>
+		</html>
+	);
+}
+export function ErrorBoundary() {
+	const error = useRouteError();
+	console.error(error);
+	return (
+		<html>
+			<head>
+				<title>Oh no!</title>
+				<Meta />
+				<Links />
+			</head>
+			<body>
+				<div className={"error section-p gutter-m"}>
+					<Page_Header title={"Error"} />
+					<p>Whoops! An error has occured.</p>
+					<NavLink className="primary_button" to={"/"}>
+						Return Home
+					</NavLink>
+				</div>
 				<Scripts />
 			</body>
 		</html>

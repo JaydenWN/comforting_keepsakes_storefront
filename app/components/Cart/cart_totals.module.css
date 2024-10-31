@@ -1,0 +1,17 @@
+.totals {
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid var(--secondary);
+	padding: 0px 1rem;
+}
+.totals p {
+	font-size: .8em;
+}
+.totals p:last-of-type {
+	font-family: "currency";
+}
+
+.totals_footer {
+	text-align: center;
+	font-size: .8em;
+}

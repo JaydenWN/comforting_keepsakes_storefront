@@ -1,0 +1,16 @@
+.customer-stories h2 {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.embla {
+	overflow: hidden;
+}
+.embla__container {
+	display: flex;
+	gap: 1em;
+}
+.embla__slide {
+	flex: 0 0 100%;
+	min-width: 0;
+}

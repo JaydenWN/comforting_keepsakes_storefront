@@ -1,0 +1,20 @@
+.customer_details {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	background-color: var(--off-white);
+	padding: 0.5em;
+	border-radius: 8px;
+	border: 1px solid var(--secondary);
+}
+
+.customer_name {
+	display: flex;
+	gap: 1em;
+}
+
+.customer_name div {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}

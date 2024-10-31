@@ -1,12 +1,15 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { requireUser } from "~/utils/requireUser.server.js";
 import medusa from "~/utils/medua-client";
-import { useLoaderData } from "@remix-run/react";
+import { NavLink, useLoaderData } from "@remix-run/react";
 import { getSession } from "~/utils/createUserSession.server";
+import Page_Header from "~/components/Misc/Page_Header";
+import OrderSummary from "../components/Orders/order_summary";
+import styles from "../components/Orders/orders.module.css";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Orders" },
+		{ title: "Comforting Keepsakes | Orders" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -29,10 +32,22 @@ export async function loader({ request }) {
 
 export default function CustomerOrders() {
 	const loaderData = useLoaderData();
-	console.log(loaderData);
 	return (
-		<>
-			<h2>Orders</h2>
-		</>
+		<section className="gutter-m">
+			<Page_Header title="Orders" />
+			<div className="section-p">
+				<div className={styles["orders"]}>
+					{loaderData.orders.map((order) => (
+						<OrderSummary key={order.id} order={order} />
+					))}
+				</div>
+				<NavLink
+					to={"/store/customer/claim_order"}
+					className={"primary_button"}
+				>
+					Claim an Order
+				</NavLink>
+			</div>
+		</section>
 	);
 }

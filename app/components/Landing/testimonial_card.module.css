@@ -1,0 +1,40 @@
+.testimonial_card {
+	background-color: var(--secondary);
+	padding: 1.5rem;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	gap: 1em;
+}
+.testimonial_card p {
+	align-self: flex-end;
+}
+.testimonial_card blockquote {
+	position: relative;
+	text-indent: .5em;
+	z-index: 2;
+	margin-top: .25em;
+}
+.quote {
+	display: flex;
+	flex-direction: column;
+}
+.quote::before {
+	content: '"';
+	font-family: "headings";
+	position: absolute;
+	color: var(--primary);
+	font-size: 4.5em;
+	padding-top: 16px;
+	z-index: 1;
+}
+
+.testimonial_image {
+	object-fit: contain;
+}
+
+.testimonial_image img {
+	width: 100%;
+	border-radius: 8px;
+}

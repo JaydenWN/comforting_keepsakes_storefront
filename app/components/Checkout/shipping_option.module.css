@@ -1,0 +1,70 @@
+.shipping_option {
+	background-color: var(--off-white);
+	border-radius: 8px;
+	width: 100%;
+	height: 100%;
+	border: 2px solid transparent;
+	padding: 1em;
+	gap: 1em;
+	appearance: none;
+	display: inline-flex;
+	box-sizing: border-box;
+	position: relative;
+	cursor: pointer;
+	transition: all 150ms;
+	border: 1px solid var(--secondary);
+}
+
+.shipping_option:hover {
+	border-color: var(--primary);
+}
+
+.shipping_option:focus {
+	outline: 2px solid var(--secondary);
+	outline-offset: 2px;
+}
+
+.shipping_option[data-selected="true"] {
+	border-color: var(--accent);
+	background-color: var(--secondary);
+}
+
+.img_wrapper {
+	max-width: 13%;
+	object-fit: contain;
+}
+
+.img_wrapper img {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+}
+
+.price {
+	font-family: "currency";
+	font-size: .8em;
+	margin-left: auto;
+	color: var(--accent);
+}
+
+.shipping_description p:last-child {
+	font-size: .8em;
+}
+
+.shipping_description {
+	line-height: 1em;
+	width: 100%;
+}
+
+.shipping_header {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 0.5em;
+}
+
+.shipping_form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}

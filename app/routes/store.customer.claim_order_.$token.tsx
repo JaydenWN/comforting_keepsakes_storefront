@@ -1,10 +1,13 @@
 import { json, type MetaFunction } from "@remix-run/node";
+import Page_Header from "~/components/Misc/Page_Header";
 import medusa from "~/utils/medua-client";
 import { requireUser } from "~/utils/requireUser.server.js";
+import ClaimOutcome from "../components/Orders/Claim_Outcome";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Orders" },
+		{ title: "Comforting Keepsakes | Orders" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -28,16 +31,22 @@ export async function loader({ request, params }) {
 			headers,
 		);
 	} catch (e) {
-		console.log(e);
+		return json({
+			success: false,
+		});
 	}
 
-	return null;
+	return json({ success: true });
 }
 
 export default function CustomerOrders() {
+	const { success } = useLoaderData();
 	return (
-		<>
-			<h2>Confirmation</h2>
-		</>
+		<section className="section-p gutter-m">
+			<Page_Header title={"Order Claim"} />
+			<div className="section-p">
+				<ClaimOutcome success={success} />
+			</div>
+		</section>
 	);
 }

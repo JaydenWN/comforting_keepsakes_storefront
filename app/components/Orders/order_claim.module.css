@@ -1,0 +1,46 @@
+.order_claim {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	background-color: var(--off-white);
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+	padding: 1em;
+}
+
+.order_claim div {
+	display: flex;
+	flex-direction: column;
+}
+
+.order_claim input {
+	font-family: "text";
+	font-size: 1em;
+	padding: .5em;
+	border-radius: 8px;
+	border: 1px solid var(--primary);
+	background-color: inherit;
+}
+
+.field_error {
+	font-size: .7em;
+	color: var(--accent);
+}
+
+.confirmation {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	background-color: var(--off-white);
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+	padding: 1em;
+}
+
+.notification {
+	display: flex;
+	gap: 1em;
+	background-color: var(--secondary);
+	border-radius: 8px;
+	padding: 1em;
+}

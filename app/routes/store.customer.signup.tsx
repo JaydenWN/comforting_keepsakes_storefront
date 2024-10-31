@@ -1,20 +1,16 @@
 import type { MetaFunction } from "@remix-run/node";
-import {
-	FieldError,
-	Form,
-	Label,
-	TextField,
-	Input,
-	Button,
-} from "react-aria-components";
+import { Form } from "react-aria-components";
 import { useActionData, useSubmit, NavLink, redirect } from "@remix-run/react";
 import { useState } from "react";
 import medusa from "~/utils/medua-client";
 import { commitSession, getSession } from "~/utils/createUserSession.server";
+import SignupForm from "../components/Customer/Signup_Form";
+import Page_Header from "~/components/Misc/Page_Header";
+import styles from "../components/Customer/signup_form.module.css";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Sign Up" },
+		{ title: "Comforting Keepsakes | Sign Up" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -86,68 +82,37 @@ export default function CustomerSignup() {
 	}
 
 	return (
-		<Form
-			method="post"
-			onSubmit={(e) => handleSubmit(e)}
-			validationErrors={actionData?.errors}
-		>
-			{actionData?.errors.other === "duplicate" && (
+		<section className="gutter-m">
+			<Page_Header title={"Sign Up"} />
+
+			<div className={styles["signup_header"]}>
+				<p>Sign up for a keepsake account.</p>
 				<p>
-					An account already exists with that email. Please{" "}
-					<NavLink to={"/store/customer/login"}>Log in</NavLink> instead.
+					Already have an account?{" "}
+					<NavLink to={"/store/customer/login"}>Login.</NavLink>
 				</p>
-			)}
-			<TextField
-				type="text"
-				name="first_name"
-				isRequired
-				autoComplete="given-name"
-			>
-				<Label>First Name</Label>
-				<Input />
-				<FieldError />
-			</TextField>
+			</div>
 
-			<TextField
-				type="text"
-				name="last_name"
-				isRequired
-				autoComplete="family-name"
+			<Form
+				method="post"
+				onSubmit={(e) => handleSubmit(e)}
+				validationErrors={actionData?.errors}
+				className="section-p"
 			>
-				<Label>Last Name</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-			<TextField type="email" name="email" isRequired autoComplete="email">
-				<Label>Email</Label>
-				<Input />
-				<FieldError />
-			</TextField>
-			<TextField
-				type="password"
-				name="password"
-				isRequired
-				isInvalid={passwordErrors.length > 0}
-				value={password}
-				onChange={setPassword}
-				onFocus={() => setPasswordActive(true)}
-				onBlur={() => setPasswordActive(false)}
-			>
-				<Label>Password</Label>
-				<Input />
-
-				<FieldError>
-					{passwordActive && passwordErrors.length > 0 && (
-						<ul>
-							{passwordErrors.map((error, i) => (
-								<li key={i}>{error}</li>
-							))}
-						</ul>
-					)}
-				</FieldError>
-			</TextField>
-
-			<Button type="submit">Sign Up</Button>
-		</Form>
+				{actionData?.errors.other === "duplicate" && (
+					<p>
+						An account already exists with that email. Please{" "}
+						<NavLink to={"/store/customer/login"}>Log in</NavLink> instead.
+					</p>
+				)}
+				<SignupForm
+					password={password}
+					passwordErrors={passwordErrors}
+					setPasswordActive={setPasswordActive}
+					passwordActive={passwordActive}
+					setPassword={setPassword}
+				/>
+			</Form>
+		</section>
 	);
 }

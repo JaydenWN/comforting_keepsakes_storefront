@@ -1,0 +1,16 @@
+.what_now {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin-top: 2em;
+}
+
+.what_now h2 {
+	font-size: 1.25em;
+	border-bottom: 1px solid var(--secondary);
+}
+
+.what_now a {
+	text-align: center;
+	margin-top: 1em;
+}

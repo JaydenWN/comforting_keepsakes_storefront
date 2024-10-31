@@ -1,0 +1,15 @@
+.info_text {
+	padding: 1em;
+	border: 1px solid var(--primary);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.order_claim {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin: 1em 0px;
+}

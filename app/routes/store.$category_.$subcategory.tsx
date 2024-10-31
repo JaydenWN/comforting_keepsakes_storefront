@@ -4,7 +4,7 @@ import medusa from "~/utils/medua-client";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Subcategory" },
+		{ title: "Comforting Keepsakes | Subcategory" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };

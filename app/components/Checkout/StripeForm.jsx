@@ -2,6 +2,7 @@ import { Button, Form } from "react-aria-components";
 import { PaymentElement } from "@stripe/react-stripe-js";
 import { useElements, useStripe } from "@stripe/react-stripe-js";
 import { useFetcher } from "@remix-run/react";
+import styles from "./stripe_form.module.css";
 export default function StripeForm({ cart, clientSecret }) {
 	const stripe = useStripe();
 	const elements = useElements();
@@ -56,9 +57,15 @@ export default function StripeForm({ cart, clientSecret }) {
 
 	if (fetcher.state === "idle") {
 		return (
-			<Form onSubmit={(e) => handlePayment(e)} method="post">
+			<Form
+				onSubmit={(e) => handlePayment(e)}
+				method="post"
+				className={styles["stripe_form"]}
+			>
 				<PaymentElement />
-				<Button type="submit">Confirm Payment</Button>
+				<Button type="submit" className="primary_button">
+					Confirm Payment
+				</Button>
 			</Form>
 		);
 	}

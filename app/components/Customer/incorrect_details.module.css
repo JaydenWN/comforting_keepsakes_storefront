@@ -1,0 +1,27 @@
+.incorrect_details {
+	display: flex;
+	gap: 1em;
+	background-color: var(--accent);
+	color: white;
+	padding: 1em;
+	border-radius: 8px;
+}
+
+.alert p:last-of-type {
+	font-size: .8em;
+	margin-left: 8px;
+}
+
+.alert a {
+	color: var(--accent);
+}
+
+.alert {
+	border: 1px solid var(--primary);
+	background-color: var(--off-white);
+	padding: .5em;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: .5em;
+}

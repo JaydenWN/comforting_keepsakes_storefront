@@ -1,0 +1,27 @@
+.why-section {
+	background-color: var(--off-white);
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+.why-section h2 {
+	font-size: 1.5em;
+	text-align: center;
+}
+.why-card {
+	background-color: var(--secondary);
+	padding: 1.5em;
+	border-radius: 8px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+.why-cta-text {
+	font-size: 1.2em;
+	font-family: "headings";
+}
+
+.why-cta-text span {
+	color: var(--accent);
+}

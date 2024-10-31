@@ -1,0 +1,28 @@
+.checkout_form input {
+	padding: 0.5em .8em;
+	border-radius: 8px;
+	border: 1px solid var(--secondary);
+	font-size: 16px;
+	font-family: "text";
+	background-color: var(--off-white);
+	width: 100%;
+	box-sizing: border-box;
+}
+.checkout_form label {
+	font-size: .8em;
+	font-weight: 500;
+	margin-left: 0.25em;
+}
+
+.checkout_form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.checkout_form h2 {
+	font-family: "text";
+	font-weight: 500;
+	margin-bottom: -1em;
+	margin-left: 0.25em;
+}

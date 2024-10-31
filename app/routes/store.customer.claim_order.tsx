@@ -2,18 +2,13 @@ import { json, type MetaFunction } from "@remix-run/node";
 import { requireUser } from "~/utils/requireUser.server.js";
 import medusa from "~/utils/medua-client";
 import { useActionData, useFetcher, useLoaderData } from "@remix-run/react";
-import {
-	Button,
-	FieldError,
-	Form,
-	Input,
-	Label,
-	TextField,
-} from "react-aria-components";
+import Page_Header from "~/components/Misc/Page_Header";
+import OrderClaim from "../components/Orders/Order_Claim";
+import styles from "../components/Orders/claim_order.module.css";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Orders" },
+		{ title: "Comforting Keepsakes | Orders" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -47,13 +42,14 @@ export async function action({ request }) {
 		);
 
 		return json({
-			errors: { confirmation: "Please Check your email for verification." },
+			errors: {
+				confirmation: "Please follow instructions sent to your email.",
+			},
 		});
 	} catch (e) {
-		console.log(e);
 		return json({
 			errors: {
-				confirmation: "Could'nt find an order with that identification number",
+				order_id: "Could'nt find an order with that identification number.",
 			},
 		});
 	}
@@ -78,21 +74,18 @@ export default function CustomerOrders() {
 	}
 
 	return (
-		<>
-			<h2>Order Claim</h2>
-			<p>{fetcher?.data?.errors.confirmation}</p>
-			<Form
-				method="post"
-				validationErrors={fetcher?.data?.errors}
-				onSubmit={(e) => handleSubmit(e)}
-			>
-				<TextField name="order_id" isRequired>
-					<Label>Order Id</Label>
-					<Input />
-					<FieldError>{fetcher.data?.errors?.order_id}</FieldError>
-				</TextField>
-				<Button type="submit">Submit</Button>
-			</Form>
-		</>
+		<section className="gutter-m">
+			<Page_Header title={"Order Claim"} />
+			<div className={`${styles["order_claim"]} section-p `}>
+				<div className={styles["info_text"]}>
+					<p>Wish to claim an order and add it to your account?</p>
+					<p>
+						Please enter your order ID that you recieved in the confirmation
+						email we sent when you placed your order.
+					</p>
+				</div>
+				<OrderClaim handleSubmit={handleSubmit} fetcher={fetcher} />
+			</div>
+		</section>
 	);
 }

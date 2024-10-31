@@ -3,7 +3,7 @@ import { Outlet } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "Finvision | Product" },
+		{ title: "Comforting Keepsakes | Product" },
 		{ name: "description", content: "Welcome to Remix!" },
 	];
 };
@@ -11,7 +11,6 @@ export const meta: MetaFunction = () => {
 export default function ProductDisplay() {
 	return (
 		<>
-			<h2>Product Display</h2>
 			<Outlet />
 		</>
 	);

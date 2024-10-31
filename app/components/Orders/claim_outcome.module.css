@@ -1,0 +1,17 @@
+.claim_outcome {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	background-color: var(--off-white);
+	border: 1px solid var(--primary);
+	padding: 1em;
+	border-radius: 8px;
+}
+
+.claim_notification {
+	display: flex;
+	background-color: var(--primary);
+	padding: 1em;
+	border-radius: 8px;
+	gap: 1em;
+}

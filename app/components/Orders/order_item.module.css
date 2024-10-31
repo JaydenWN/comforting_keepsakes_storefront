@@ -1,0 +1,46 @@
+.item {
+	display: flex;
+	gap: 1em;
+}
+
+.item_img {
+	width: 30%;
+	object-fit: contain;
+}
+.item_img img {
+	width: 100%;
+	border-radius: 8px;
+}
+
+.item_description {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 70%;
+}
+
+.description_head {
+	display: flex;
+	justify-content: space-between;
+}
+
+.item_quantity {
+	font-size: .7em;
+	font-family: "currency";
+}
+
+.description {
+	font-size: .8em;
+}
+
+.price {
+	font-family: "currency";
+	font-size: .8em;
+	color: var(--primary);
+	text-align: right;
+	line-height: normal;
+}
+
+.title {
+	font-weight: 500;
+}
