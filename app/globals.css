@@ -198,6 +198,10 @@ table {
 	.gutter-m {
 		margin: 0px 2.5rem;
 	}
+	.section-p {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
 }
 
 @media (width >= 1024px) {
@@ -207,6 +211,10 @@ table {
 	.gutter-m {
 		padding: 0px 4.5rem;
 	}
+	.section-p {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
 }
 
 @media (width >= 1440px) {
@@ -215,5 +223,9 @@ table {
 	}
 	.gutter-m {
 		margin: 0px 8rem;
+	}
+	.section-p {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
 	}
 }
