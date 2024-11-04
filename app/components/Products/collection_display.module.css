@@ -43,3 +43,14 @@
 	flex: 0 0 50%;
 	min-width: 0;
 }
+
+@media (width >= 768px) {
+	.embla__slide {
+		flex: 0 0 180px;
+	}
+	.collection-display {
+		background-color: var(--off-white);
+		padding: 1em;
+		border-radius: 8px;
+	}
+}

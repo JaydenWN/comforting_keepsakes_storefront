@@ -8,9 +8,11 @@ export default function Product_Display({ imgs, price, description, title }) {
 					<img src={image.url} alt={title} key={image.id} />
 				))}
 			</div>
-			<h1>{title}</h1>
-			<p className={styles["product_price"]}>{formatCurrency(price)}</p>
-			<p>{description}</p>
+			<div className={styles["product_description"]}>
+				<h1>{title}</h1>
+				<p className={styles["product_price"]}>{formatCurrency(price)}</p>
+				<p>{description}</p>
+			</div>
 		</div>
 	);
 }

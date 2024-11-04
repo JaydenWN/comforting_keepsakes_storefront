@@ -3,8 +3,6 @@ import { useFetcher, useLoaderData } from "@remix-run/react";
 import { Form } from "react-aria-components";
 import { useState } from "react";
 import medusa from "~/utils/medua-client";
-import createCart from "~/utils/createCart";
-import { cartID } from "~/utils/createCartCookie";
 import ProductDisplay from "../components/Product/Product_Display";
 import ProductSelection from "../components/Product/Product_Selection";
 import { Button } from "react-aria-components";
@@ -88,7 +86,7 @@ export default function Product() {
 						/>
 					) : null}
 
-					<Button type="submit" className="primary_button">
+					<Button type="submit" className={styles["add_to_cart_btn"]}>
 						Add to Cart
 					</Button>
 				</Form>

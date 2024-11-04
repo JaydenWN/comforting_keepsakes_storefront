@@ -24,3 +24,33 @@
 .product_price {
 	color: var(--accent);
 }
+
+@media (width >= 768px) {
+	.product_display {
+		flex-direction: row;
+		gap: 2em;
+	}
+	.product_image_container {
+		min-width: 35%;
+	}
+
+	.product_description {
+		display: flex;
+		flex-direction: column;
+	}
+	.product_description p:last-of-type {
+		margin-top: 2em;
+	}
+}
+
+@media (width >= 1024px) {
+	.product_display {
+		gap: 4em;
+	}
+	.product_image_container {
+		max-width: 30%;
+	}
+	.product_description {
+		max-width: 30%;
+	}
+}

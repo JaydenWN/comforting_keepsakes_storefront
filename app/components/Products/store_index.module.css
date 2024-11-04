@@ -1,0 +1,9 @@
+.product_collections {
+	padding: 1em 0px 4em 0px;
+}
+
+@media (width >= 768px) {
+	.product_collections {
+		padding: 3em 0px 4em 0px;
+	}
+}

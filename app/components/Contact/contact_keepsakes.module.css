@@ -1,0 +1,36 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding: 1.45em 2rem;
+}
+
+.contact h2 {
+	text-align: center;
+	font-size: 1.45em;
+}
+
+@media (width >= 768px) {
+	.contact {
+		padding: 4em;
+		gap: 2em;
+	}
+}
+
+@media (width >= 1024px) {
+	.contact {
+		padding: 4em 6em;
+		gap: 3em;
+		line-height: 2.5em;
+	}
+}
+
+@media (width >= 1440px) {
+	.contact {
+		padding: 6em 8em;
+	}
+	.contact p {
+		max-width: 80%;
+		align-self: center;
+	}
+}

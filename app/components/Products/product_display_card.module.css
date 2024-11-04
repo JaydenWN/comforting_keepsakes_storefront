@@ -27,3 +27,20 @@
 	margin: auto;
 	padding: 0em 1em;
 }
+
+@media (width >= 768px) {
+	.product_card {
+		max-width: calc(50% - 1em);
+	}
+	.product_image {
+		max-width: 50%;
+		align-self: center;
+		object-position: 50% 50%;
+	}
+}
+
+@media (width >= 1024px) {
+	.product_card {
+		max-width: calc(33% - 1em);
+	}
+}

@@ -1,4 +1,8 @@
 import type { MetaFunction } from "@remix-run/node";
+import Page_Header from "~/components/Misc/Page_Header";
+import ContactKeepsakes from "../components/Contact/Contact_Keepsakes";
+import OurInformation from "../components/Contact/Our_Information";
+import Why from "~/components/Landing/Why";
 
 export const meta: MetaFunction = () => {
 	return [
@@ -8,5 +12,14 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Contact() {
-	return <h2>Contact</h2>;
+	return (
+		<main>
+			<div className="gutter-m">
+				<Page_Header title={"Contact"} />
+			</div>
+			<ContactKeepsakes />
+			<OurInformation />
+			<Why />
+		</main>
+	);
 }
