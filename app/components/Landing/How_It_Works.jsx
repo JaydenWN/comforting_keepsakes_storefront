@@ -4,9 +4,10 @@ import HowCard from "./How_Card";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 export default function How_It_Works() {
-	const [emblaRef] = useEmblaCarousel({ loop: false }, [
-		Autoplay({ delay: 3500 }),
-	]);
+	const [emblaRef] = useEmblaCarousel(
+		{ loop: false, breakpoints: { "(min-width: 1024px)": { active: false } } },
+		[Autoplay({ delay: 3500 })],
+	);
 	return (
 		<section className={`${styles["how_section"]} gutter-p section-p`}>
 			<h2>How It Works</h2>

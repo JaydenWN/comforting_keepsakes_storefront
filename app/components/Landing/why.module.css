@@ -16,6 +16,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	border: 1px solid var(--primary);
 }
 .why-cta-text {
 	font-size: 1.2em;
@@ -24,4 +25,32 @@
 
 .why-cta-text span {
 	color: var(--accent);
+}
+
+@media (width >= 768px) {
+	.why-section h2 {
+		margin-bottom: 1em;
+	}
+
+	.why-card {
+		padding: 3em;
+		gap: 2.25em;
+	}
+}
+
+@media (width >= 1024px) {
+	.why-card {
+		max-width: 60%;
+		padding: 4em;
+		align-self: center;
+	}
+	.why-section h2 {
+		margin-bottom: 2em;
+	}
+}
+
+@media (width >= 1440px) {
+	.why-card {
+		max-width: 50%;
+	}
 }

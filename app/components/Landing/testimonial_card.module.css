@@ -6,6 +6,7 @@
 	flex-direction: column;
 	position: relative;
 	gap: 1em;
+	border: 1px solid var(--primary);
 }
 .testimonial_card p {
 	align-self: flex-end;
@@ -37,4 +38,27 @@
 .testimonial_image img {
 	width: 100%;
 	border-radius: 8px;
+}
+
+@media (width >= 768px) {
+	.testimonial_card {
+		flex-direction: row;
+	}
+	.quote {
+		padding: 1.25em;
+		justify-content: space-between;
+	}
+	.testimonial_card blockquote {
+		text-indent: 1.25em;
+	}
+}
+
+@media (width >= 1440px) {
+	.testimonial_card {
+		max-width: 50%;
+		min-width: 760px;
+		align-self: center;
+		justify-self: center;
+		box-sizing: border-box;
+	}
 }

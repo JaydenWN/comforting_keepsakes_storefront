@@ -1,6 +1,7 @@
 .customer-stories h2 {
 	font-size: 1.5em;
 	text-align: center;
+	margin: 0px 0px 1em 0px;
 }
 
 .embla {
@@ -13,4 +14,31 @@
 .embla__slide {
 	flex: 0 0 100%;
 	min-width: 0;
+}
+
+.embla_controls {
+	visibility: hidden;
+}
+
+@media (width >= 1024px) {
+	.customer-stories h2 {
+		margin-bottom: 3em;
+	}
+	.embla_controls {
+		visibility: visible;
+		display: flex;
+		gap: 2em;
+		align-items: center;
+		justify-content: center;
+		margin: 2em 0px;
+	}
+	.embla__next,
+	.embla__prev {
+		background-color: var(--primary);
+		padding: .6em .6em;
+		border: 0px;
+		border-radius: 8px;
+		cursor: pointer;
+		display: flex;
+	}
 }

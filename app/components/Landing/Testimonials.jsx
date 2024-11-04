@@ -38,12 +38,14 @@ export default function Testimonials() {
 						</div>
 					</div>
 				</div>
-				{/* <Button className="embla__prev" onPress={scrollPrev}>
-					Prev
-				</Button>
-				<Button className="embla__next" onPress={scrollNext}>
-					Next
-				</Button> */}
+				<div className={styles["embla_controls"]}>
+					<Button className={styles["embla__prev"]} onPress={scrollPrev}>
+						<img src="/icons/arrow-left_icon.svg" alt="previous" />
+					</Button>
+					<Button className={styles["embla__next"]} onPress={scrollNext}>
+						<img src="/icons/arrow-right_icon.svg" alt="next" />
+					</Button>
+				</div>
 			</div>
 		</section>
 	);

@@ -16,6 +16,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
+	color: white;
 }
 
 .embla {
@@ -24,9 +25,53 @@
 .embla__container {
 	display: flex;
 	gap: 1em;
-	padding-bottom: 2.5em;
 }
 .embla__slide {
 	flex: 0 0 100%;
 	min-width: 0;
+}
+
+@media (width >= 768px) {
+	.embla__slide {
+		flex: 0 0 50%;
+	}
+
+	.how_section {
+		gap: 4em;
+	}
+
+	.how_section h2 {
+		margin-top: 1.25em;
+	}
+	.how-cta {
+		text-align: center;
+		max-width: 50%;
+		align-self: center;
+		padding: 4em;
+		gap: 2em;
+		margin: 4em 0px;
+	}
+}
+@media (width >= 1024px) {
+	.embla__slide {
+		flex: 0 0 30%;
+	}
+	.embla__container {
+		flex-direction: column;
+		gap: 2em;
+	}
+	.how_section h2 {
+		margin-bottom: 2.5em;
+	}
+}
+@media (width >= 1440px) {
+	.embla__container {
+		gap: 4em;
+	}
+	.embla__slide:nth-child(2) div {
+		justify-self: center;
+	}
+	.embla__slide:nth-child(3) div {
+		justify-self: end;
+	}
 }
